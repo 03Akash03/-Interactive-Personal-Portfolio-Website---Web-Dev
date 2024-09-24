@@ -1,4 +1,4 @@
-* {
+** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -800,6 +800,3 @@ button.btn:hover::before {
         margin: 0 15px; /* Adjusted spacing for mobile */
     }
 }
-
-
-
