@@ -1,12 +1,14 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(18, 18, 40);
-    color: white;
+    background: linear-gradient(to bottom right, #0a0e1f, #1b1e31); /* Dark blue gradient */
+    color: #f0f0f0; /* Soft white color for text */
     font-family: 'Poppins', sans-serif;
+    transition: background-color 0.5s;
 }
 
 nav {
@@ -14,7 +16,9 @@ nav {
     justify-content: space-around;
     align-items: center;
     height: 100px;
-    background-color: rgb(18, 18, 62);
+    background-color: rgba(27, 30, 49, 0.9); /* Deep navy with slight transparency */
+    border-bottom: 2px solid #5a67d9; /* Softer accent color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
 
 nav ul {
@@ -24,12 +28,17 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: #f0f0f0; /* Consistent text color */
+    font-size: 1.1rem;
+    padding: 10px 15px; /* Button-like feel */
+    border-radius: 5px;
+    transition: color 0.3s, transform 0.3s, background 0.3s; /* Smooth transitions */
 }
 
 nav ul li a:hover {
-    color: rgb(153, 153, 226);
-    font-size: 1.02rem;
+    background: rgba(90, 103, 217, 0.3); /* Soft background on hover */
+    color: #d9d9d9; /* Slightly lighter text on hover */
+    transform: scale(1.05);
 }
 
 nav ul li {
@@ -39,9 +48,10 @@ nav ul li {
 
 main hr {
     border: 0;
-    background: #9c97f1;
-    height: 1.2px;
+    background: #5a67d9; /* Accent color for the horizontal rule */
+    height: 1.5px; /* Slightly thicker */
     margin: 60px 80px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }
 
 .firstsection {
@@ -49,14 +59,30 @@ main hr {
     justify-content: space-around;
     align-items: center;
     margin: 110px 0;
+    position: relative; /* For absolute positioning of background */
+}
+
+.firstsection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('your-pattern.png') repeat; /* Optional background pattern */
+    opacity: 0.1; /* Subtle background effect */
+    z-index: 0; /* Behind other content */
 }
 
 .firstsection > div {
     width: 30%;
+    z-index: 1; /* Bring content above background */
+    animation: fadeIn 1s;
 }
 
 .leftsection {
     font-size: 3rem;
+    animation: slideInLeft 1s;
 }
 
 .leftsection .buttons {
@@ -64,22 +90,56 @@ main hr {
 }
 
 .leftsection .btn {
-    padding: 12px;
-    background: #1e2167;
-    color: white;
-    border: 2px solid white;
+    padding: 12px 20px; /* Adjusted padding for better feel */
+    background: #4a5f9c; /* New button background color */
+    color: #f0f0f0; /* Consistent text color */
+    border: 2px solid #5a67d9; /* Accent border */
     border-radius: 6px;
     font-size: 20px;
     cursor: pointer;
+    transition: background 0.3s, transform 0.2s, color 0.3s; /* Transition effects */
+    position: relative; /* For pseudo-elements */
+    overflow: hidden; /* Contain the hover effect */
+}
+
+.leftsection .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(90, 103, 217, 0.5); /* Color for hover effect */
+    border-radius: 50%; /* Circular effect */
+    transform: translate(-50%, -50%) scale(0); /* Start off small */
+    transition: transform 0.5s ease; /* Smooth transition */
+    z-index: 0; /* Behind text */
+}
+
+.leftsection .btn:hover::after {
+    transform: translate(-50%, -50%) scale(1); /* Expand on hover */
+}
+
+.leftsection .btn:hover {
+    color: #1b1e31; /* Dark text on hover */
+    transform: translateY(-2px);
 }
 
 .rightsection img {
     width: 100%;
     margin: 70px 0;
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    transition: transform 0.3s, filter 0.3s; /* Image hover effect */
+}
+
+.rightsection img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1); /* Slight brightness on hover */
 }
 
 .purple {
-    color: rgb(170, 107, 228);
+    color: #5a67d9; /* Accent color for highlighted text */
 }
 
 .secondsection {
@@ -89,13 +149,15 @@ main hr {
 }
 
 .secondsection h1 {
-    font-size: 1.9rem;
+    font-size: 2.2rem; /* Larger font size for headings */
     margin-top: 28px;
+    text-align: center; /* Centering for better focus */
 }
 
 .box {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Center the boxes */
 }
 
 .vertical {
@@ -104,6 +166,13 @@ main hr {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* For hover effects */
+}
+
+.vertical:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .image-top {
@@ -112,16 +181,19 @@ main hr {
 }
 
 .footer {
-    background-color: #0e0e1a;
+    background-color: rgba(18, 18, 26, 0.9); /* Dark footer with transparency */
     display: flex;
     justify-content: space-between;
     padding: 23px 122px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .footer-rights {
     text-align: center;
-    color: gray;
+    color: #d9d9d9; /* Softer gray for footer text */
 }
+
 
 
 
@@ -138,15 +210,16 @@ main hr {
     padding-bottom: 10px; /* Space below the text */
     font-family: 'Poppins', sans-serif; /* Use a modern font */
     position: relative; /* For pseudo-element positioning */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
 }
 
 #internships h1::after {
     content: ''; /* Pseudo-element for decorative underline */
     display: block;
-    width: 50%; /* Width of the underline */
-    height: 4px; /* Height of the underline */
+    width: 60%; /* Width of the underline */
+    height: 5px; /* Height of the underline */
     background: rgb(170, 107, 228); /* Color of the underline */
-    margin: 10px auto; /* Center the underline */
+    margin: 15px auto; /* Center the underline */
     border-radius: 5px; /* Rounded corners */
 }
 
@@ -159,34 +232,36 @@ main hr {
 
 .internship {
     background: rgba(255, 255, 255, 0.1); /* Light background for contrast */
-    border-radius: 12px; /* Rounded corners for a softer look */
-    padding: 25px; /* Padding for inner spacing */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    padding: 30px; /* Padding for inner spacing */
     margin: 20px 0; /* Increased vertical spacing between items */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow for depth */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center items horizontally */
+    position: relative; /* For decorative elements */
 }
 
 .internship:hover {
     transform: translateY(-8px); /* More pronounced lift effect on hover */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
 }
 
 .image-top {
     width: 100%; /* Full width of the container */
-    max-width: 350px; /* Set a maximum width to keep it from being too large */
+    max-width: 350px; /* Set a maximum width */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 12px; /* Consistent rounded corners */
+    border-radius: 15px; /* Consistent rounded corners */
     margin-bottom: 20px; /* Space below the image */
     display: block; /* Block element */
-    border: 2px solid rgba(170, 107, 228, 0.5); /* Subtle border for emphasis */
-    transition: transform 0.2s; /* Image scaling effect on hover */
+    border: 3px solid rgba(170, 107, 228, 0.5); /* Subtle border for emphasis */
+    transition: transform 0.3s, border-color 0.3s; /* Image scaling effect on hover */
 }
 
 .image-top:hover {
     transform: scale(1.05); /* Slight scale effect on hover */
+    border-color: rgb(170, 107, 228); /* Change border color on hover */
 }
 
 .vertical-title {
@@ -194,21 +269,42 @@ main hr {
     text-align: center; /* Center the title */
     margin: 15px 0; /* Margin above and below */
     color: rgb(170, 107, 228); /* Title color */
-    font-size: 1.5rem; /* Larger font size for titles */
+    font-size: 1.7rem; /* Slightly larger font size for titles */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); /* Soft shadow for text */
 }
 
 .company-name {
     font-weight: 600; /* Semi-bold style for company name */
-    color: gray; /* Gray color for company name */
+    color: rgba(255, 255, 255, 0.8); /* Lighter gray for company name */
+    margin-bottom: 8px; /* Space below the company name */
 }
 
 .vertical-desc {
     text-align: left; /* Left-align the descriptions */
     color: white; /* White text for contrast */
-    margin-bottom: 12px; /* Space below each description */
-    font-size: 1rem; /* Clear font size */
-    line-height: 1.5; /* Increased line height for readability */
+    margin-bottom: 15px; /* Space below each description */
+    font-size: 1.1rem; /* Clear font size */
+    line-height: 1.6; /* Increased line height for readability */
 }
+
+/* Decorative Background */
+.internship::before {
+    content: ''; /* Pseudo-element for decorative background */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: 0; /* Align to the bottom */
+    background: rgba(30, 30, 30, 0.5); /* Dark semi-transparent background */
+    border-radius: 15px; /* Match rounded corners */
+    z-index: -1; /* Send behind content */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+.internship:hover::before {
+    background: rgba(170, 107, 228, 0.5); /* Change background on hover */
+}
+
 
 
 
@@ -223,6 +319,7 @@ main hr {
     font-weight: 700; /* Bold font for importance */
     letter-spacing: 3px; /* Wider letter spacing for a modern look */
     font-family: 'Poppins', sans-serif; /* Modern font family */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Enhanced shadow for text */
 }
 
 .projects-container {
@@ -230,21 +327,23 @@ main hr {
     flex-direction: column; /* Stack items vertically */
     max-width: 80vw; /* Limit maximum width */
     margin: auto; /* Center the container */
+    padding: 20px; /* Add padding to container */
 }
 
 .project {
     position: relative; /* Position for overlay effect */
     background: rgba(255, 255, 255, 0.2); /* Lighter background for contrast */
-    border-radius: 12px; /* Rounded corners */
-    padding: 20px; /* Padding for inner spacing */
+    border-radius: 15px; /* Rounded corners for a softer look */
+    padding: 30px; /* Increased padding for inner spacing */
     margin: 15px 0; /* Vertical spacing between items */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Enhanced shadow for depth */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    overflow: hidden; /* Clip overflowing content */
 }
 
 .project:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); /* Increased shadow on hover */
 }
 
 .project h2 {
@@ -252,21 +351,23 @@ main hr {
     margin: 0; /* Remove default margin */
     font-family: 'Poppins', sans-serif; /* Consistent font */
     font-weight: 600; /* Medium weight for titles */
+    font-size: 1.8rem; /* Slightly larger font for titles */
 }
 
 .project-description {
     position: absolute; /* Position description overlay */
     top: 50%; /* Center vertically */
-    right: -320px; /* Start off-screen to the right */
+    right: -300px; /* Start off-screen to the right */
     transform: translateY(-50%); /* Center the text */
-    background: rgba(0, 0, 0, 0.8); /* Dark background for contrast */
+    background: rgba(30, 30, 30, 0.9); /* Dark background for contrast */
     color: #fff; /* White text for readability */
     padding: 20px; /* Padding for inner spacing */
     border-radius: 8px; /* Rounded corners for the description box */
     opacity: 0; /* Hidden by default */
     transition: right 0.4s ease, opacity 0.4s ease; /* Smooth transition for visibility */
-    width: 270px; /* Fixed width for description */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    width: 280px; /* Fixed width for description */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
 }
 
 .project:hover .project-description {
@@ -274,37 +375,131 @@ main hr {
     opacity: 1; /* Show description on hover */
 }
 
+.project img {
+    width: 100%; /* Responsive image */
+    border-radius: 10px; /* Rounded corners for images */
+    transition: transform 0.3s; /* Image hover effect */
+}
+
+.project:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .project {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    #projects h1 {
+        font-size: 2.5rem; /* Smaller heading size */
+    }
+
+    .project-description {
+        width: 90%; /* Wider description on smaller screens */
+        right: -10%; /* Start closer to view on small screens */
+    }
+}
+
+
 
 
 
 
 #about {
-    background-color: #1e1e2f; /* Dark background for contrast */
-    color: white; /* White text for readability */
-    padding: 40px; /* Spacing around the section */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    background: linear-gradient(135deg, #1e1e2f 0%, #2a2a3c 100%); /* Gradient background */
+    color: #eaeaea; /* Light text for readability */
+    padding: 60px 40px; /* Increased spacing */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
     max-width: 800px; /* Maximum width for better readability */
-    margin: auto; /* Center the section */
+    margin: 40px auto; /* Center the section */
     font-family: 'Poppins', sans-serif; /* Consistent font */
+    position: relative; /* For pseudo-elements */
+    overflow: hidden; /* Clip children */
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.1); /* Light overlay */
+    z-index: -1; /* Send it behind the content */
+}
+
+#about::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(30, 30, 30, 0)); /* Subtle radial gradient */
+    z-index: -2; /* Behind everything */
 }
 
 #about h1 {
-    font-size: 3rem; /* Large font for the heading */
+    font-size: 3.5rem; /* Large font for the heading */
     text-align: center; /* Center the heading */
-    margin-bottom: 20px; /* Space below the heading */
-    color: rgb(170, 107, 228); /* Accent color for the heading */
+    margin-bottom: 25px; /* Space below the heading */
+    color: #6c63ff; /* Accent color for the heading */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6); /* Enhanced shadow */
+    letter-spacing: 1px; /* Slight letter spacing */
+    position: relative; /* For pseudo-element */
+}
+
+#about h1::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 5px; /* Height of the underline */
+    background: #6c63ff; /* Accent color */
+    margin: 10px auto; /* Center the underline */
+    border-radius: 5px; /* Rounded corners */
 }
 
 #about p {
     font-size: 1.2rem; /* Readable font size */
-    line-height: 1.6; /* Increased line height for better readability */
-    margin: 15px 0; /* Vertical spacing between paragraphs */
-    text-align: justify; /* Justified text for a polished look */
+    line-height: 1.7; /* Increased line height */
+    margin: 15px 0; /* Vertical spacing */
+    text-align: justify; /* Justified text */
+    transition: color 0.3s; /* Transition for hover effects */
+    position: relative; /* For pseudo-elements */
+}
+
+#about p::before {
+    content: '💡'; /* Emoji or icon for visual appeal */
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 1.5rem; /* Icon size */
+    vertical-align: middle; /* Align vertically */
+}
+
+#about p:hover {
+    color: #6c63ff; /* Accent color on hover */
 }
 
 #about p:last-of-type {
     margin-bottom: 0; /* Remove margin from the last paragraph */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #about {
+        padding: 40px 20px; /* Adjust padding for smaller screens */
+    }
+
+    #about h1 {
+        font-size: 2.5rem; /* Smaller heading size */
+    }
+
+    #about p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
 }
 
 
@@ -314,91 +509,138 @@ main hr {
 #contact {
     max-width: 80vw; /* Maintain responsive width */
     margin: auto; /* Center the section */
-    padding: 40px; /* Increased padding for a more spacious feel */
-    background: rgba(255, 255, 255, 0.1); /* Light background with opacity */
-    border-radius: 10px; /* Slightly rounded corners for a softer look */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+    padding: 40px; /* Increased padding for spacious feel */
+    background: rgba(30, 30, 30, 0.9); /* Darker background for contrast */
+    border-radius: 15px; /* More pronounced rounded corners */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth */
     color: white; /* Text color */
-    margin-bottom: 40px; /* Added margin to create space between sections */
+    margin-bottom: 40px; /* Space between sections */
+    position: relative; /* For overlay effects */
+    overflow: hidden; /* Clip overflow */
 }
 
 #contact h1 {
     text-align: center; /* Centered heading */
-    margin-bottom: 10px; /* Reduced margin for better spacing */
+    margin-bottom: 20px; /* More space below */
     font-family: 'Poppins', sans-serif; /* Modern font */
-    font-size: 2.5rem; /* Larger font size for emphasis */
-    color: rgb(170, 107, 228); /* Match project section title color */
+    font-size: 2.8rem; /* Emphasized font size */
+    color: rgb(170, 107, 228); /* Accent color */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
 }
-
 
 #contact p {
     text-align: center; /* Centered paragraph */
-    margin-bottom: 30px; /* Spacing below the paragraph */
-    font-size: 1.1rem; /* Font size for better readability */
+    margin-bottom: 30px; /* Spacing below */
+    font-size: 1.2rem; /* Readable font size */
 }
 
 .form-group {
-    margin-bottom: 20px; /* Increased spacing between form groups */
+    margin-bottom: 30px; /* Increased spacing between form groups */
 }
 
 label {
     display: block; /* Block display for labels */
-    margin-bottom: 8px; /* Increased margin for better readability */
+    margin-bottom: 10px; /* Margin for readability */
     font-weight: bold; /* Bold for emphasis */
-    color: white; /* Keep label color consistent */
+    color: rgb(170, 107, 228); /* Accent label color */
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
     width: 100%; /* Full width for inputs */
-    padding: 12px; /* Increased padding for comfort */
-    border: none; /* No border for a cleaner look */
-    border-radius: 6px; /* Slightly larger radius for a modern feel */
-    background: rgba(255, 255, 255, 0.2); /* Light background */
+    padding: 14px; /* Comfortable padding */
+    border: none; /* Clean look */
+    border-radius: 10px; /* More rounded corners */
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
     color: white; /* Text color */
-    font-size: 1rem; /* Consistent font size */
-    transition: background 0.3s; /* Smooth transition for focus state */
+    font-size: 1.1rem; /* Consistent font size */
+    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 textarea:focus {
     outline: none; /* Remove default outline */
-    background: rgba(255, 255, 255, 0.3); /* Darker background on focus */
-    box-shadow: 0 0 5px rgba(170, 107, 228, 0.7); /* Glow effect on focus */
+    background: rgba(255, 255, 255, 0.2); /* Slightly darker background on focus */
+    box-shadow: 0 0 10px rgba(170, 107, 228, 0.7); /* Glow effect on focus */
 }
 
 button.btn {
-    padding: 12px 24px; /* Increased padding for comfort */
-    background: rgb(30, 33, 103); /* Keep original background */
+    padding: 14px 28px; /* Comfortable padding */
+    background: rgb(170, 107, 228); /* Accent background */
     color: white; /* Text color */
     border: none; /* No border */
-    border-radius: 6px; /* Rounded corners */
+    border-radius: 10px; /* More rounded corners */
     cursor: pointer; /* Pointer on hover */
-    font-size: 1.1rem; /* Slightly larger font size */
-    transition: background 0.3s, transform 0.2s; /* Smooth transitions */
+    font-size: 1.1rem; /* Larger font size */
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s; /* Smooth transitions */
+    position: relative; /* For pseudo-elements */
 }
 
 button.btn:hover {
-    background: rgb(30, 33, 103); /* Keep original hover background */
-    opacity: 0.9; /* Slight opacity change */
-    transform: translateY(-2px); /* Lift effect on hover */
+    background: rgba(170, 107, 228, 0.9); /* Slightly darker accent on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow on hover */
 }
+
+button.btn::before {
+    content: '';
+    position: absolute; /* Positioned effect */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 300%; /* Wider than the button */
+    height: 300%; /* Taller than the button */
+    background: rgba(170, 107, 228, 0.3); /* Soft background color */
+    border-radius: 50%; /* Circular effect */
+    transform: translate(-50%, -50%) scale(0); /* Initial scale */
+    transition: transform 0.4s ease; /* Smooth scaling */
+}
+
+button.btn:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* Scale up on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    #contact {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    #contact h1 {
+        font-size: 2.2rem; /* Adjust font size */
+    }
+
+    #contact p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        font-size: 1rem; /* Adjust input size */
+    }
+
+    button.btn {
+        font-size: 1rem; /* Adjust button size */
+    }
+}
+
 
 
 
 
 
 .footer {
-    background-color: #444; /* Slightly lighter for a fresh look */
+    background-color: rgba(18, 18, 40, 0.9); /* Dark background for consistency */
     color: #f0f0f0; /* Softer white for contrast */
     text-align: center;
-    padding: 30px 20px; /* Increased padding for a spacious feel */
+    padding: 40px 20px; /* Increased padding for a spacious feel */
     position: relative;
     bottom: 0;
     width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
+    border-top: 2px solid rgb(170, 107, 228); /* Top border for emphasis */
 }
 
 .footer .container {
@@ -407,9 +649,10 @@ button.btn:hover {
 }
 
 .footer p {
-    margin: 10px 0; /* Added margin for better spacing */
-    font-size: 16px; /* Increased font size for readability */
+    margin: 15px 0; /* Increased margin for better spacing */
+    font-size: 18px; /* Larger font size for readability */
     font-weight: 300; /* Lighter weight for a modern look */
+    line-height: 1.6; /* Improved line height for readability */
 }
 
 .social-links {
@@ -420,25 +663,97 @@ button.btn:hover {
 
 .social-links li {
     display: inline;
-    margin: 0 20px; /* Increased spacing for clarity */
+    margin: 0 25px; /* Increased spacing for clarity */
 }
 
 .social-links a {
-    color: #1e90ff; /* Bright blue for links */
+    color: rgb(170, 107, 228); /* Accent color for links */
     text-decoration: none;
-    transition: color 0.3s; /* Smooth transition for hover effect */
+    font-weight: 500; /* Medium weight for better visibility */
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
 }
 
 .social-links a:hover {
     color: #ff6347; /* Change color on hover for interactivity */
+    transform: scale(1.1); /* Slightly scale up on hover */
     text-decoration: underline; /* Underline effect on hover */
 }
 
 .footer hr {
     border: none; /* Remove default border */
     height: 1px; /* Set height */
-    background-color: #555; /* Color for the line */
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle line color */
     margin: 20px 0; /* Margin for spacing */
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start transparent */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%); /* Start from the left */
+    }
+    to {
+        transform: translateX(0); /* End in place */
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%); /* Start from the right */
+    }
+    to {
+        transform: translateX(0); /* End in place */
+    }
+}
+
+/* Adding animations to sections */
+.firstsection,
+.secondsection,
+#about,
+#contact {
+    animation: fadeIn 0.6s ease forwards; /* Apply fade-in effect */
+}
+
+.firstsection {
+    animation-name: slideInLeft; /* Slide in from left */
+}
+
+.secondsection {
+    animation-name: slideInRight; /* Slide in from right */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .firstsection,
+    .secondsection {
+        flex-direction: column; /* Stack vertically on small screens */
+        align-items: center; /* Center items */
+    }
+
+    .firstsection > div,
+    .secondsection > div {
+        width: 90%; /* Full width on smaller screens */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+    }
+
+    .footer p {
+        font-size: 16px; /* Slightly smaller font on mobile */
+    }
+
+    .social-links li {
+        margin: 0 15px; /* Adjusted spacing for mobile */
+    }
 }
 
 
