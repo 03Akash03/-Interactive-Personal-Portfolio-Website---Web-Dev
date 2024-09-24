@@ -311,7 +311,6 @@ main hr {
 
 
 
-
 #contact {
     max-width: 80vw; /* Maintain responsive width */
     margin: auto; /* Center the section */
@@ -323,13 +322,19 @@ main hr {
     margin-bottom: 40px; /* Added margin to create space between sections */
 }
 
-
 #contact h1 {
     text-align: center; /* Centered heading */
-    margin-bottom: 30px; /* Increased margin for better spacing */
+    margin-bottom: 10px; /* Reduced margin for better spacing */
     font-family: 'Poppins', sans-serif; /* Modern font */
     font-size: 2.5rem; /* Larger font size for emphasis */
     color: rgb(170, 107, 228); /* Match project section title color */
+}
+
+
+#contact p {
+    text-align: center; /* Centered paragraph */
+    margin-bottom: 30px; /* Spacing below the paragraph */
+    font-size: 1.1rem; /* Font size for better readability */
 }
 
 .form-group {
@@ -379,43 +384,6 @@ button.btn:hover {
     background: rgb(30, 33, 103); /* Keep original hover background */
     opacity: 0.9; /* Slight opacity change */
     transform: translateY(-2px); /* Lift effect on hover */
-}
-
-
-
-
-.footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-.footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer p {
-    margin: 0;
-}
-
-.social-links {
-    list-style: none;
-    padding: 0;
-}
-
-.social-links li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.social-links a {
-    color: #fff;
-    text-decoration: none;
 }
 
 
@@ -472,3 +440,6 @@ button.btn:hover {
     background-color: #555; /* Color for the line */
     margin: 20px 0; /* Margin for spacing */
 }
+
+
+
