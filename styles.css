@@ -314,7 +314,7 @@ main hr {
     font-size: 3.5rem; /* Increased font size for better visibility */
     text-align: center; /* Center the heading */
     margin: 40px 0; /* Margin above and below */
-    color: rgb(170, 107, 228); /* Unique color for visibility */
+    color: #a66be4; /* Unique color for visibility */
     text-transform: uppercase; /* Uppercase for emphasis */
     font-weight: 700; /* Bold font for importance */
     letter-spacing: 3px; /* Wider letter spacing for a modern look */
@@ -347,7 +347,7 @@ main hr {
 }
 
 .project h2 {
-    color: rgb(170, 107, 228); /* Title color */
+    color: #a66be4; /* Title color */
     margin: 0; /* Remove default margin */
     font-family: 'Poppins', sans-serif; /* Consistent font */
     font-weight: 600; /* Medium weight for titles */
@@ -368,10 +368,11 @@ main hr {
     width: 280px; /* Fixed width for description */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
     backdrop-filter: blur(5px); /* Frosted glass effect */
+    z-index: 10; /* Ensure description appears above other content */
 }
 
 .project:hover .project-description {
-    right: 0; /* Bring into view on hover */
+    right: 10px; /* Bring into view on hover */
     opacity: 1; /* Show description on hover */
 }
 
@@ -400,8 +401,52 @@ main hr {
         right: -10%; /* Start closer to view on small screens */
     }
 }
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(30, 30, 30, 0.9); /* Dark background with some transparency */
+}
 
+.modal-content {
+    background-color: rgba(44, 44, 44, 0.95); /* Slightly lighter background for contrast */
+    margin: 15% auto; /* Centered */
+    padding: 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 15px; /* Rounded corners */
+    width: 80%; /* Responsive width */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    color: #fff; /* White text for readability */
+}
 
+.close {
+    color: #f0f0f0; /* Softer white */
+    float: right; /* Right-align */
+    font-size: 28px; /* Large font */
+    font-weight: bold; /* Bold */
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(170, 107, 228); /* Accent color on hover */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.modal h2 {
+    color: rgb(170, 107, 228); /* Title color consistent with other sections */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Soft shadow for text */
+}
+
+.modal p {
+    line-height: 1.6; /* Better readability */
+    font-size: 1rem; /* Consistent font size */
+}
 
 
 
