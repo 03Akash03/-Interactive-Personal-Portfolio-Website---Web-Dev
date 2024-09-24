@@ -83,52 +83,38 @@
         <section id="projects">
             <h1>Projects</h1>
             <div class="projects-container">
-                <div class="project">
+                <div class="project" onclick="openModal('modal1')">
                     <h2>Advanced Sports Analytics for UEFA EURO 2024</h2>
                     <p><strong>Field:</strong> Data Science and Machine Learning | <strong>Tools/Technologies:</strong> Python, Machine Learning, EDA, Deep Learning</p>
-                    <p class="project-description">
-                        ◦ Conducted web scraping and data preprocessing, performed descriptive statistical analysis with visualizations to offer insights for coaches.<br>
-                        ◦ Applied a Gradient Boosting Classifier for predicting 2021 League Table Rankings and used a tuned Random Forest Regressor to analyze Top Players, achieving a 96.9 R² score.
-                    </p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="openModal('modal2')">
                     <h2>Dynamic Weather Dashboard</h2>
                     <p><strong>Field:</strong> Frontend Web Development | <strong>Tools/Technologies:</strong> HTML, CSS, JavaScript, OpenWeatherMap API</p>
-                    <p class="project-description">
-                        ◦ Developed a responsive weather dashboard using HTML, CSS, and JavaScript, integrating the OpenWeatherMap API
-                        to display real-time weather data for over 50 locations<br>
-                        ◦ Implemented features like location search and dynamic updates, enhancing user engagement by 30%<br>
-                        ◦ Leveraged asynchronous JavaScript and robust error handling, improving performance and reliability by 20%
-                    </p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="openModal('modal3')">
                     <h2>Sorting Algorithm Visualizer</h2>
                     <p><strong>Field:</strong> Frontend Web Development | <strong>Tools/Technologies:</strong> HTML, CSS, JavaScript</p>
-                    <p class="project-description">
-                        ◦ Designed and implemented a sorting algorithm visualizer in HTML, CSS, and JavaScript, showcasing Bubble Sort, Merge Sort, and Quick Sort with real-time, interactive graphics<br>
-                        ◦ Optimized performance and responsiveness of the web application, improving visualization accuracy and reducing latency by 30%
-                    </p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="openModal('modal4')">
                     <h2>Stock Price Prediction</h2>
-                    <p><strong>Field:</strong> Data Science and Machine Learning | <strong>Tools/Technologies:</strong> Python, Machine learning</p>
-                    <p class="project-description">
-                        ◦ Built a stock price prediction model in Python, preprocessing data with Pandas and scaling with Scikit-Learn’s
-                          MinMaxScaler<br>
-                        ◦ Trained and validated the model using Scikit-Learn’s Linear Regression, achieving accurate stock price forecasts
-                    </p>
+                    <p><strong>Field:</strong> Data Science and Machine Learning | <strong>Tools/Technologies:</strong> Python, Machine Learning</p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="openModal('modal5')">
                     <h2>Credit Card Financial Dashboard</h2>
                     <p><strong>Field:</strong> Data visualization | <strong>Tools/Technologies:</strong> SQL, Power BI</p>
-                    <p class="project-description">
-                        ◦ Developed an interactive dashboard with data from SQL databases (over 15,000 rows) to extract valuable insights and
-                        monitor key performance metrics<br>
-                        ◦ Optimized data processing and analysis, delivering actionable insights to stakeholders to enhance decision-making
-                    </p>
+                </div>
+            </div>
+            
+            <!-- Modal Structure -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
                 </div>
             </div>
         </section>
+        
         
            
         <hr>
@@ -173,9 +159,7 @@
                 </li>
             </ul>
         </div>
-    </footer>
-    
-    
+    </footer> 
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="script.js"></script>
